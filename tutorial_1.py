@@ -1,7 +1,8 @@
 #1. Randomly select an element from a list
 
 #2. Generate a random number in 0/1
-
+import random
+random uniform = random.(0, 1)
 #3. Use random in 0/1 to mask 50% of the words in a string
 
 #4. Use random in 0/1 to mask 70% of the words in a string

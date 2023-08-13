@@ -40,6 +40,9 @@ def get_masked_word(word):
 # where 3 is the maximum number of attempts for guessing the word (score==0 the user lost)
 game_score=3
 #1. Load all the available words in memory (by reading them from a text file, or hard-coding them)
+file = 
+f = open(file)
+data = f.readlines()
 
 #2. Pick a random word from all the available words.
 random.choice(list(set(word)))

@@ -39,16 +39,18 @@ def get_masked_word(word):
 #0. Define a variable for the game score, e.g. score=3
 # where 3 is the maximum number of attempts for guessing the word (score==0 the user lost)
 game_score=3
+tried_letters_list = []
+
 #1. Load all the available words in memory (by reading them from a text file, or hard-coding them)
 file = 
 f = open(file)
 data = f.readlines()
 
 #2. Pick a random word from all the available words.
-random.choice(list(set(word)))
+random_word = random.choice(data)
 
 #3. Turn the letters in the word into capital letters, search for the default method .upper()
-word.upper()
+random_word = random_word.upper()
 
 #4. Use the function get_masked_word() that I provided for you above.
 # This function returns the masked word, and a dictionary.
@@ -56,12 +58,12 @@ word.upper()
 # and a list of their positions as values.
 # e.g. if you call the function in this way: get_masked_word("UNICORN")
 # the result could be: ('U-IC---', {'N': [1, 6], 'O': [4], 'R': [5]})
-get_masked_word()
+masked_ran_word, random_word_dict = get_masked_word(random_word) 
 
 
 #5. Print on screen the masked word and ask the user to 
 # type a letter in the terminal, you can use the default method input()
-print (masked_word)
+print (masked_ran_word)
 letter = input ("Input a letter")
 
 #6. You need to check if the user provided more than one letter.
@@ -70,20 +72,21 @@ if len(letter)>0:
     letter = letter[0]
 
 #7. Turn the character provided by the user into a capital letter
-letter.upper()
+letter = letter.upper()
+tried_letters_list.append(letter)
 
 #8. Check if the letter provided by the user is a good one or a bad one.
 # Recall: in step-4 you used the function get_masked_word() to get a dictionary of masked letters.
 # If the letter is in the dictionary then it's a GOOD one (show this letter in masked_word)
 # If the letter is NOT in the dictionary it's a BAD one (decrease the score)
-if letter in masked_letter_position_dict():
-    masked_word[index] = letter
-    else score = score - 1
+if letter in random_word_dict:
+    letter_pos_list = random_word_dict[letter]
+    for letter_pos in letter_pos_list:
+        masked_ran_word[letter_pos] = letter
+else score = score - 1
 
 #9. Print the current user score, the masked word, and the list of letters already tried.
 # If the score==0 the game is finished, a new match can start (set again score=3)
 if score >0:
-    print (score, masked_word, tried_letters)
-    else 
-    game() 
-    score = 3
+    print (score, masked_word, tried_letters_list)
+else print ("You lose")

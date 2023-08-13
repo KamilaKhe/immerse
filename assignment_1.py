@@ -53,6 +53,7 @@ word.upper()
 # and a list of their positions as values.
 # e.g. if you call the function in this way: get_masked_word("UNICORN")
 # the result could be: ('U-IC---', {'N': [1, 6], 'O': [4], 'R': [5]})
+get_masked_word()
 
 
 #5. Print on screen the masked word and ask the user to 
@@ -80,4 +81,6 @@ if letter in masked_letter_position_dict():
 # If the score==0 the game is finished, a new match can start (set again score=3)
 if score >0:
     print (score, masked_word, tried_letters)
-    
+    else 
+    game() 
+    score = 3
